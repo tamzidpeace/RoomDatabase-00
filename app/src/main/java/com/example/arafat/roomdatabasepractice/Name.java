@@ -21,9 +21,7 @@ public class Name {
         this.last_name = last_name;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    // getter method
 
     public int getId() {
 
@@ -38,4 +36,18 @@ public class Name {
         return last_name;
     }
 
+    public void setId(int id) {
+
+        this.id = id;
+    }
+
+    //setter method
+
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
+    }
+
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
+    }
 }

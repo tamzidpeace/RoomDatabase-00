@@ -54,7 +54,7 @@ public abstract class NameDatabase extends RoomDatabase {
 
     private static class PopulatedDbAsync extends AsyncTask<Void, Void, Void> {
 
-        private NameDao nameDao;
+        private final NameDao nameDao;
 
         public PopulatedDbAsync(NameDatabase instance) {
             this.nameDao = instance.nameDao();
@@ -63,8 +63,7 @@ public abstract class NameDatabase extends RoomDatabase {
         @Override
         protected Void doInBackground(Void... voids) {
 
-
-            //nameDao.deleteall();
+            nameDao.deleteall();
             nameDao.insert(new Name("Arafat", "Kamal"));
 
             return null;
