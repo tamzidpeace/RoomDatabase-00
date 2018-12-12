@@ -57,6 +57,11 @@ public class NameListAdapter extends RecyclerView.Adapter<NameListAdapter.NameVi
         notifyDataSetChanged();
     }
 
+    // add a method to get the word at a given position
+    public Name getNameAtPostion(int position) {
+        return  mName.get(position);
+    }
+
     @Override
     public int getItemCount() {
         //System.out.println(mName.size());

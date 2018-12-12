@@ -26,8 +26,12 @@ class DatabaseRepository {
     void insert(Name name) {
         new insertAsyncTask(nameDao).execute(name);
     }
+
     // wrapper for delete all information
     void deleteAll() { new deleteAllAsyncTask(nameDao).execute();}
+
+    // wrapper for delete single item from database
+    void delete(Name name) { new deleteAsyncTask(nameDao).execute(name);}
 
     private static class insertAsyncTask extends AsyncTask<Name, Void, Void> {
 
@@ -44,7 +48,7 @@ class DatabaseRepository {
             return null;
         }
     }
-
+        // work for delete all data from database
     private static class deleteAllAsyncTask extends AsyncTask<Name, Void, Void> {
 
         private NameDao asyncTaskDao;
@@ -57,6 +61,24 @@ class DatabaseRepository {
         @Override
         protected Void doInBackground(Name... names) {
             asyncTaskDao.deleteAll();
+            return null;
+        }
+    }
+
+    // work for delete single item from database
+
+    private static class deleteAsyncTask extends AsyncTask<Name, Void, Void> {
+
+        private NameDao asyncTaskDao;
+
+        deleteAsyncTask(NameDao dao) {
+            asyncTaskDao = dao;
+        }
+
+
+        @Override
+        protected Void doInBackground(Name... names) {
+            asyncTaskDao.delete(names[0]);
             return null;
         }
     }
