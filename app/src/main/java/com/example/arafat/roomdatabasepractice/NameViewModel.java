@@ -25,4 +25,5 @@ public class NameViewModel extends AndroidViewModel {
     void insert(Name name) {
         databaseRepository.insert(name);
     }
+    void deleteAll() {databaseRepository.deleteAll();}
 }

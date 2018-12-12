@@ -6,4 +6,6 @@
     <string name="save">Save</string>
     <string name="first_name">first name</string>
     <string name="last_name">last name</string>
+    <string name="delete_all">Delete All</string>
+    <string name="clearalldata">clear_all_data</string>
 </resources>

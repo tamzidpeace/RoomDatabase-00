@@ -18,8 +18,6 @@ public abstract class NameDatabase extends RoomDatabase {
     public abstract NameDao nameDao();
 
 
-
-
     static NameDatabase getDatabase(final Context context) {
         if (instance == null) {
             synchronized (NameDatabase.class) {
@@ -53,6 +51,7 @@ public abstract class NameDatabase extends RoomDatabase {
     private static class PopulatedDbAsync extends AsyncTask<Void, Void, Void> {
 
         private final NameDao nameDao;
+
 
         //String[] myFirstName = {"Tamin", "Musfique", "Sakib", "Fizz"};
         //String[] myLastName = {"Virat", "Dhoni", "Lara", "Rashid", "Gayle"};
