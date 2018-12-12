@@ -3,7 +3,6 @@ package com.example.arafat.roomdatabasepractice;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
-import android.support.annotation.NonNull;
 
 // making of table in this class
 

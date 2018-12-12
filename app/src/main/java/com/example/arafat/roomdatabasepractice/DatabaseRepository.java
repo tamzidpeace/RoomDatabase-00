@@ -6,12 +6,12 @@ import android.os.AsyncTask;
 
 import java.util.List;
 
-public class DatabaseRepository {
+class DatabaseRepository {
 
     private NameDao nameDao;
     private LiveData<List<Name>> allName;
 
-    public DatabaseRepository(Application application) {
+    DatabaseRepository(Application application) {
         NameDatabase db = NameDatabase.getDatabase(application);
         nameDao = db.nameDao();
         allName = nameDao.getAllNames();
@@ -23,7 +23,7 @@ public class DatabaseRepository {
     }
 
     // wrapper for insert()
-    public void insert(Name name) {
+    void insert(Name name) {
         new insertAsyncTask(nameDao).execute(name);
     }
 
@@ -31,7 +31,7 @@ public class DatabaseRepository {
 
         private NameDao asyncTaskDao;
 
-        public insertAsyncTask(NameDao dao) {
+        insertAsyncTask(NameDao dao) {
             asyncTaskDao = dao;
         }
 

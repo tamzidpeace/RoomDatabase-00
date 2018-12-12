@@ -7,9 +7,7 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
-import android.widget.Toast;
 
-import java.util.List;
 
 @Database(entities = {Name.class}, version = 1)
 public abstract class NameDatabase extends RoomDatabase {
@@ -22,7 +20,7 @@ public abstract class NameDatabase extends RoomDatabase {
 
 
 
-    public static NameDatabase getDatabase(final Context context) {
+    static NameDatabase getDatabase(final Context context) {
         if (instance == null) {
             synchronized (NameDatabase.class) {
                 if (instance == null) {
@@ -56,21 +54,21 @@ public abstract class NameDatabase extends RoomDatabase {
 
         private final NameDao nameDao;
 
-        String[] myFirstName = {"Tamin", "Musfique", "Sakib", "Fizz"};
-        String[] myLastName = {"Virat", "Dhoni", "Lara", "Rashid", "Gayle"};
+        //String[] myFirstName = {"Tamin", "Musfique", "Sakib", "Fizz"};
+        //String[] myLastName = {"Virat", "Dhoni", "Lara", "Rashid", "Gayle"};
 
-        public PopulatedDbAsync(NameDatabase db) {
+        PopulatedDbAsync(NameDatabase db) {
             nameDao = db.nameDao();
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
 
-            nameDao.deleteAll();
+            //nameDao.deleteAll();
             //nameDao.insert(new Name("Arafat", "Kamal"));
-            for (int i = 0; i <myFirstName.length ; i++) {
+            /*for (int i = 0; i <myFirstName.length ; i++) {
                 nameDao.insert(new Name(myFirstName[i], myLastName[i]));
-            }
+            }*/
             return null;
         }
 

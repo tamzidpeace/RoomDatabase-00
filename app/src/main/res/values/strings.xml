@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">RoomDatabasePractice</string>
     <string name="add_name">Add Name</string>
+    <string name="enter_first_name">enter first name</string>
+    <string name="enter_last_name">enter last name</string>
+    <string name="save">Save</string>
+    <string name="first_name">first name</string>
+    <string name="last_name">last name</string>
 </resources>

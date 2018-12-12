@@ -22,7 +22,7 @@ public class NameViewModel extends AndroidViewModel {
         return allName;
     }
 
-    public void insert(Name name) {
+    void insert(Name name) {
         databaseRepository.insert(name);
     }
 }

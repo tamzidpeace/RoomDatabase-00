@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -17,11 +16,11 @@ public class NameListAdapter extends RecyclerView.Adapter<NameListAdapter.NameVi
     private List<Name> mName;
     private final LayoutInflater mLayoutInflater;
 
-    public class NameViewHolder extends RecyclerView.ViewHolder {
+    class NameViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView  mFirstName, mLastName;
+        TextView  mFirstName, mLastName;
 
-        public NameViewHolder(@NonNull View itemView) {
+        NameViewHolder(@NonNull View itemView) {
             super(itemView);
 
             mFirstName = itemView.findViewById(R.id.first_name);
@@ -29,7 +28,7 @@ public class NameListAdapter extends RecyclerView.Adapter<NameListAdapter.NameVi
         }
     }
 
-    public NameListAdapter(Context context) {
+    NameListAdapter(Context context) {
 
         mLayoutInflater = LayoutInflater.from(context);
     }
@@ -38,8 +37,7 @@ public class NameListAdapter extends RecyclerView.Adapter<NameListAdapter.NameVi
     @Override
     public NameViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = mLayoutInflater.inflate(R.layout.single_item, viewGroup, false);
-        NameViewHolder nameViewHolder = new NameViewHolder(view);
-        return nameViewHolder;
+        return new NameViewHolder(view);
     }
 
     @Override
