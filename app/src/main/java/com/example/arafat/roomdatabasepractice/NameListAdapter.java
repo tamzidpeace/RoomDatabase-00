@@ -15,17 +15,15 @@ public class NameListAdapter extends RecyclerView.Adapter<NameListAdapter.NameVi
 
 
     private List<Name> mName;
-    private Context context;
     private final LayoutInflater mLayoutInflater;
 
     public class NameViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView mSerialNo, mFirstName, mLastName;
+        public TextView  mFirstName, mLastName;
 
         public NameViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            mSerialNo = itemView.findViewById(R.id.id_no);
             mFirstName = itemView.findViewById(R.id.first_name);
             mLastName = itemView.findViewById(R.id.last_name);
         }
@@ -45,25 +43,18 @@ public class NameListAdapter extends RecyclerView.Adapter<NameListAdapter.NameVi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NameViewHolder nameViewHolder, int i) {
+    public void onBindViewHolder(@NonNull NameViewHolder holder, int position) {
 
         if (mName != null) {
-            Name findName = mName.get(i);
-            String b = findName.getFirst_name();
-            String c = findName.getLast_name();
-            int a = findName.getId();
-            String s = Integer.toString(a);
-
-            nameViewHolder.mSerialNo.setText(s);
-            nameViewHolder.mFirstName.setText(b);
-            nameViewHolder.mLastName.setText(c);
-        } else
-            Toast.makeText(context, "No Word", Toast.LENGTH_SHORT).show();
+            Name current = mName.get(position);
+            holder.mFirstName.setText(current.getFirst_name());
+            holder.mLastName.setText(current.getLast_name());
+        }
 
 
     }
 
-    public void setName(List<Name> name) {
+    void setName(List<Name> name) {
         mName = name;
         notifyDataSetChanged();
     }

@@ -56,18 +56,24 @@ public abstract class NameDatabase extends RoomDatabase {
 
         private final NameDao nameDao;
 
-        public PopulatedDbAsync(NameDatabase instance) {
-            this.nameDao = instance.nameDao();
+        String[] myFirstName = {"Tamin", "Musfique", "Sakib", "Fizz"};
+        String[] myLastName = {"Virat", "Dhoni", "Lara", "Rashid", "Gayle"};
+
+        public PopulatedDbAsync(NameDatabase db) {
+            nameDao = db.nameDao();
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
 
-            nameDao.deleteall();
-            nameDao.insert(new Name("Arafat", "Kamal"));
-
+            nameDao.deleteAll();
+            //nameDao.insert(new Name("Arafat", "Kamal"));
+            for (int i = 0; i <myFirstName.length ; i++) {
+                nameDao.insert(new Name(myFirstName[i], myLastName[i]));
+            }
             return null;
         }
+
     }
 }
 

@@ -16,7 +16,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     public RecyclerView mRecyclerView;
-    public RecyclerView.Adapter mAdapter;
+    //public RecyclerView.Adapter mAdapter;
     public RecyclerView.LayoutManager mLayoutManager;
     private Button addName;
     private NameViewModel viewModel;
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         //setting up layout-manager and adapter
         mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new NameListAdapter(getApplicationContext());
+        final NameListAdapter mAdapter = new NameListAdapter(this);
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
@@ -40,9 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         // button work
 
-        AddName activityAddName = new AddName();
-
-        addName = findViewById(R.id.add_name);
+     /*   addName = findViewById(R.id.add_name);
 
         addName.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,14 +50,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
 
             }
-        });
+        });*/
+
+        //setting up data to the recyclerview :
 
         viewModel = ViewModelProviders.of(this).get(NameViewModel.class);
 
         viewModel.getAllName().observe(this, new Observer<List<Name>>() {
             @Override
-            public void onChanged(@Nullable final List<Name> names) {
-               // mAdapter.setName(names);
+            public void onChanged(@Nullable List<Name> names) {
+                mAdapter.setName(names);
             }
         });
 

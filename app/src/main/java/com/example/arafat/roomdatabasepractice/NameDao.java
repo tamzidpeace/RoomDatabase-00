@@ -19,7 +19,7 @@ public interface NameDao {
     void delete(Name name);
 
     @Query("delete from name_table")
-    void deleteall();
+    void deleteAll();
 
     @Query("select * from name_table")
     LiveData<List<Name>> getAllNames();
